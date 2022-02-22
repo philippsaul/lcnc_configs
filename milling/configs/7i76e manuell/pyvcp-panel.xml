@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pyvcp>
+         <vbox>
+         <relief>RIDGE</relief>         
+         <bd>6</bd>
+                <label>
+                        <text>"Spindle Speed:"</text>
+                        <font>("Helvetica",20)</font>
+                </label>
+                <bar>
+                        <halpin>"spindle-speed"</halpin>
+                        <max_>24000</max_>
+						
+                </bar>
+
+               
+        </vbox>
+		<button>
+			<halpin>"spindle-warmup"</halpin>
+			<text>"Spindle Warmup"</text>
+			<font>('Fixed', 16)</font>
+		</button>
+		<label>
+            <text>""</text>
+            <font>("Helvetica",20)</font>
+        </label>
+		<button>
+			<halpin>"z-touch-off-g54"</halpin>
+			<text>"Z Touch Off G54"</text>
+			<font>('Fixed', 16)</font>
+		</button>
+		<label>
+            <text>""</text>
+            <font>("Helvetica",20)</font>
+        </label>
+		<button>
+			<halpin>"z-touch-off-g55"</halpin>
+			<text>"Z Touch Off G55"</text>
+			<font>('Fixed', 16)</font>
+		</button>		
+</pyvcp>

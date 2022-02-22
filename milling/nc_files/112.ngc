@@ -1,0 +1,6 @@
+o112 sub  (atc vermessen)
+	G91
+	G38.2 Z-5 f100
+	G90
+o112 endsub
+M2

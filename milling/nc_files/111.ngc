@@ -1,0 +1,8 @@
+o111 sub  (atc initialisieren)
+	G43 H99
+	G10 L20 P1 Z0
+	G38.2 Z-5 f100
+	G10 L20 P1 Z0
+	G1 G54 Z10 f200
+o111 endsub
+M2

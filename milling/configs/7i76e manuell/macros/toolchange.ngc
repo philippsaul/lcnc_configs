@@ -1,0 +1,73 @@
+o<toolchange> sub
+M61 Q#4999											(Werkzeug aus Speicher setzen)
+o500 if[#<_current_tool> EQ #<_selected_tool>]
+(DEBUG,Tool bereits in Spindel)
+o500 elseif [#<_current_tool> NE #<_selected_tool>]
+G0 G53 Z0	 										(Safe Z Höhe)
+o501 if[#<_current_tool> EQ 0]						(aktuelles WZ ist T0, Wechsler wird gefüllt mit neuem Werkzeug)
+	o<klappe_auf> call 
+	
+	G53 G0 Y[#<_ini[ATC]FIRST_Y> * #<_selected_tool>]  (pocket Position anfahren vom Tool)
+	G53 G0 X[#<_ini[ATC]FIRST_X> * #<_selected_tool>]  (pocket Position anfahren vom Tool)
+	
+	M0  (für manuellen Wechsel mit 433MHz Fernbedienung und Pause)
+    o<spz_auf> call 						
+    G53 G1 Z[#<_ini[ATC]FIRST_Z> + #<_ini[ATC]SLOW_Z>] F[#<_ini[ATC]RAPID_SPEED>] 
+	G53 G1 Z[#<_ini[ATC]FIRST_Z>]	F[#<_ini[ATC]SLOW_SPEED>] 	(langsam runter)
+	M0
+	o<spz_zu> call 
+	G53 G1 X[#<_ini[ATC]FIRST_X> * #<_current_tool> + #<_ini[ATC]SAFE_X>] F[#<_ini[ATC]SLOW_SPEED>]  (pocket Position anfahren vom Tool)
+	G53 G0 Z0
+	M6 G43
+    #4999=#5400										(WZ dauerhaft merken)
+	G53 Z0										(mit WZ ausfahren)						
+	o<klappe_zu> call 
+	
+o501 elseif [#<_current_tool> GT 0]					(aktuelles WZ nicht T0, T0 aber gewählt: Wechsler wird geleert)
+	o502 if [#<_selected_tool> EQ 0]				(gewähltes WZ T0)
+        o<klappe_auf> call
+		G53 G0 Y[#<_ini[ATC]FIRST_Y> * #<_current_tool>]  (pocket Position anfahren vom Tool)
+		G53 G0 X[#<_ini[ATC]FIRST_X> * #<_current_tool> + #<_ini[ATC]SAFE_X>]  (pocket Position anfahren vom Tool)
+		G53 G1 Z[#<_ini[ATC]FIRST_Z>] F[#<_ini[ATC]RAPID_SPEED>]
+		G53 G1 X[#<_ini[ATC]FIRST_X> * #<_current_tool>] F[#<_ini[ATC]SLOW_SPEED>]
+		M0
+        o<spz_auf> call 
+		G53 Z0										(hochfahren auf safe z)
+		M0
+        o<spz_zu> call 
+		M6 G43
+		#4999=#5400									(WZ dauerhaft merken)
+        o<klappe_zu> call  
+
+    o502 elseif [#<_selected_tool> NE 0]			(gewähltes WZ nicht T0)
+		o<klappe_auf> call 
+		G53 G0 Y[#<_ini[ATC]FIRST_Y> * #<_current_tool>]  (pocket Position anfahren vom Tool)
+		G53 G0 X[#<_ini[ATC]FIRST_X> * #<_current_tool> + #<_ini[ATC]SAFE_X>]  (pocket Position anfahren vom Tool)
+		G53 G1 Z[#<_ini[ATC]FIRST_Z>] F[#<_ini[ATC]RAPID_SPEED>]
+		G53 G1 X[#<_ini[ATC]FIRST_X> * #<_current_tool>] F[#<_ini[ATC]SLOW_SPEED>]
+		M0
+		o<spz_auf> call 
+		G53 Z0									(hochfahren)
+		G53 G0 Y[#<_ini[ATC]FIRST_Y> * #<_selected_tool>]  (pocket Position anfahren vom Tool)
+		
+		G53 G1 Z[#<_ini[ATC]FIRST_Z> + #<_ini[ATC]SLOW_Z>] F[#<_ini[ATC]RAPID_SPEED>]
+		G53 G1 Z[#<_ini[ATC]FIRST_Z>] F[#<_ini[ATC]SLOW_SPEED>]
+		o<spz_zu> call 
+		M0
+		G53 G1 X[#<_ini[ATC]FIRST_X> * #<_current_tool> + #<_ini[ATC]SAFE_X>] F[#<_ini[ATC]SLOW_SPEED>]  (pocket Position anfahren vom Tool)
+		G53 G0 Z0
+		M6 G43
+		#4999=#5400									(WZ dauerhaft merken)
+	    o<klappe_zu> call 		
+    o502 endif
+o501 endif
+o500 endif
+o<toolchange> endsub
+m2
+
+
+
+
+
+
+

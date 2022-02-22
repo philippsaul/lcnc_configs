@@ -1,0 +1,18 @@
+o<spz_zu> sub
+
+
+;M65 P1						(Ausgang setzen für Klemmung schließen)
+;M66 P1 L4 Q#4000			(Eingang ob Klemmung geschlossen)
+
+;o100 if [#5399 EQ -1]		(Stop falls Klemmung nicht geschlossen. M0)
+;(DEBUG,STOP: Klemmung nicht zu!)
+;(DEBUG,Klemmung manuell schließen dann weiter mit Start oder Programm abbrechen! Crash Gefahr!)
+;M0
+;o100 endif
+
+o<spz_zu> endsub
+m2
+
+
+
+

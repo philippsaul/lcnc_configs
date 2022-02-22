@@ -1,0 +1,6 @@
+o<atc_initialisieren> sub
+	G91
+	G38.2 Z-5 f100
+	G90
+o<atc_initialisieren> endsub
+M2

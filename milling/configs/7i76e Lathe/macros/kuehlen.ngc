@@ -1,0 +1,7 @@
+o<kuehlen> sub
+	M64 P0
+	G4 P4
+	M64 P1
+o<kuehlen> endsub
+M2
+

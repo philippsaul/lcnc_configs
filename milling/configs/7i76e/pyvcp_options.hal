@@ -1,0 +1,16 @@
+# _DO NOT_ include your HAL commands here.
+# Put custom HAL commands in custom_postgui.hal
+# The commands in this file are run after the GUI loads
+
+# **** Setup of spindle speed display using pyvcp -START ****
+
+net spindle-vel-cmd-rpm-abs    =>    pyvcp.spindle-speed
+#net spindle-at-speed        =>    pyvcp.spindle-at-speed-led
+
+# **** Setup of spindle speed display using pyvcp -END ****
+net remote-spindle-warmup halui.mdi-command-00 <= pyvcp.spindle-warmup
+
+net remote-z-touch-off-g54 halui.mdi-command-01 <= pyvcp.z-touch-off-g54
+net remote-z-touch-off-g55 halui.mdi-command-02 <= pyvcp.z-touch-off-g55
+net remote-atc-initialisieren halui.mdi-command-03 <= pyvcp.atc-initialisieren
+net remote-atc-vermessen halui.mdi-command-04 <= pyvcp.atc-vermessen

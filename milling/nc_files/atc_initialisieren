@@ -1,0 +1,7 @@
+o111 sub
+	G10 L20 P1 Z0
+	G38.2 Z-5 f100
+	G10 L20 P1 Z40.446 
+	G1 G54 Z45 f200
+o111 endsub
+M2

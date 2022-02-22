@@ -1,0 +1,17 @@
+o<spz_auf> sub
+
+;M64 P1						(Ausgang setzen für Klemmung auf)
+;M66 P1 L3 Q#4000			(Eingang ob Klemmung offen ?)
+
+;o100 if [#5399 EQ -1]		
+;(DEBUG,STOP: Klemmung nicht offen!)
+;(DEBUG,Klemmung manuell öffen dann weiter mit Start oder Programm abbrechen! Crash Gefahr!)
+;M0							(Porgrammstop, mit Start geht es weiter)
+;o100 endif
+
+o<spz_auf> endsub
+m2
+
+
+
+

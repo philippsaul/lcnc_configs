@@ -1,0 +1,119 @@
+o<atc> sub
+    M5
+
+	
+    (tool ablegen)
+    o100 if [#<_current_pocket> EQ 1]
+        G53 G0 Z0
+        G53 G0 X[#<_ini[change_position_1]X>]
+        G53 G0 Y[#<_ini[change_position_1]Y>]
+        G53 G1 Z-50 F500
+        (spannzange öffnen)
+		M6 T#<_selected_tool> 
+        G53 G0 Z0
+    o100 elseif [#<_current_pocket> EQ 2]
+        G53 G0 Z0
+        G53 G0 X[#<_ini[change_position_2]X>]
+        G53 G0 Y[#<_ini[change_position_2]Y>]
+        G53 G1 Z-50 F500
+        (spannzange öffnen)
+		M6 T#<_selected_tool> 
+        G53 G0 Z0
+    o100 elseif [#<_current_pocket> EQ 3]
+        G53 G0 Z0
+        G53 G0 X[#<_ini[change_position_3]X>]
+        G53 G0 Y[#<_ini[change_position_3]Y>]
+        G53 G1 Z-50 F500
+        (spannzange öffnen)
+		M6 T#<_selected_tool> 
+        G53 G0 Z0
+    o100 elseif [#<_current_pocket> EQ 4]
+        G53 G0 Z0
+        G53 G0 X[#<_ini[change_position_4]X>]
+        G53 G0 Y[#<_ini[change_position_4]Y>]
+        G53 G1 Z-50 F500
+        (spannzange öffnen)
+		M6 T#<_selected_tool> 
+        G53 G0 Z0
+    o100 elseif [#<_current_pocket> EQ 5]
+        G53 G0 Z0
+        G53 G0 X[#<_ini[change_position_5]X>]
+        G53 G0 Y[#<_ini[change_position_5]Y>]
+        G53 G1 Z-50 F500
+        (spannzange öffnen)
+		M6 T#<_selected_tool> 
+        G53 G0 Z0
+    o100 elseif [#<_current_pocket> EQ 6]
+        G53 G0 Z0
+        G53 G0 X[#<_ini[change_position_6]X>]
+        G53 G0 Y[#<_ini[change_position_6]Y>]
+        G53 G1 Z-50 F500
+        (spannzange öffnen)
+		M6 T#<_selected_tool> 
+        G53 G0 Z0
+    o100 endif
+  
+    
+    
+    (neues Tool abholen)
+    o200 if [#<_selected_pocket> EQ 1]
+        G53 G0 Z0
+        G53 G0 X[#<_ini[change_position_1]X>]
+        G53 G0 Y[#<_ini[change_position_1]Y>]
+        G53 G1 Z-50 F500
+        (spannzange schließen)
+        (M6 T#<_selected_tool>) 
+        (G43 H<_current_tool>   nur eventuell)
+        G53 G0 Z0
+    o200 elseif [#<_selected_pocket> EQ 2]
+        G53 G0 Z0
+        G53 G0 X[#<_ini[change_position_2]X>]
+        G53 G0 Y[#<_ini[change_position_2]Y>]
+        G53 G1 Z-50 F500
+        (spannzange schließen)
+        (M6 T#<_selected_tool>) 
+        (G43 H<_current_tool>   nur eventuell)
+        G53 G0 Z0
+    o200 elseif [#<_selected_pocket> EQ 3]
+        G53 G0 Z0
+        G53 G0 X[#<_ini[change_position_3]X>]
+        G53 G0 Y[#<_ini[change_position_3]Y>]
+        G53 G1 Z-50 F500
+        (spannzange schließen)
+        (M6 T#<_selected_tool>) 
+        (G43 H<_current_tool>   nur eventuell)
+        G53 G0 Z0
+    o200 elseif [#<_selected_pocket> EQ 4]
+        G53 G0 Z0
+        G53 G0 X[#<_ini[change_position_4]X>]
+        G53 G0 Y[#<_ini[change_position_4]Y>]
+        G53 G1 Z-50 F500
+        (spannzange schließen)
+        (M6 T#<_selected_tool>) 
+        (G43 H<_current_tool>   nur eventuell)
+        G53 G0 Z0
+    o200 elseif [#<_selected_pocket> EQ 5]
+        G53 G0 Z0
+        G53 G0 X[#<_ini[change_position_5]X>]
+        G53 G0 Y[#<_ini[change_position_5]Y>]
+        G53 G1 Z-50 F500
+        (spannzange schließen)
+        M6 T#<_selected_tool> 
+        (G43 H<_current_tool>   nur eventuell)
+        G53 G0 Z0
+     o200 elseif [#<_selected_pocket> EQ 6]
+        G53 G0 Z0
+        G53 G0 X[#<_ini[change_position_6]X>]
+        G53 G0 Y[#<_ini[change_position_6]Y>]
+        G53 G1 Z-50 F500
+        (spannzange schließen)
+        M6 T#<_selected_tool> 
+        (G43 H<_current_tool>   nur eventuell)
+        G53 G0 Z0
+	o200 elseif [#<_selected_pocket> EQ -1]
+		G53 G0 Y0
+    o200 endif
+o<atc> endsub
+M2
+
+

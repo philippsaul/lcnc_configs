@@ -1,0 +1,7 @@
+o<kuehlenaus> sub
+	M65 P0
+	G4 P6
+	M65 P1
+o<kuehlenaus> endsub
+M2
+

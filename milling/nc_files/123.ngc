@@ -1,0 +1,23 @@
+o123 sub
+	M3 (Spindel start, Rechtslauf)
+
+	S6000 (Spindel 6.000 U/min)
+
+	G4 P90 (2 Minuten halten)
+
+	S12000 (Spindel 12.000 U/min)
+
+	G4 P90 (2 Minuten halten)
+
+	S18000 (Spindel 6.000 U/min)
+
+	G4 P90 (2 Minuten halten)
+	
+	S24000 (Spindel 6.000 U/min)
+
+	G4 P90 (2 Minuten halten)
+	M5 (Spindel halt)
+
+	M30 (Programm Ende)
+o123 endsub
+M2
